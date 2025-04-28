@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 252 87% 59%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 252 87% 59%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 87% 59%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 252 87% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes typing-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  @apply w-2 h-2 bg-indigo-400 rounded-full;
+  animation: typing-bounce 1.4s infinite;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Smaller inline typing dots */
+.typing-dot-inline {
+  @apply w-1 h-1 bg-indigo-400 rounded-full inline-block;
+  animation: typing-bounce 1.4s infinite;
+  position: relative;
+  top: -1px;
+}
+
+.typing-dot-inline:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot-inline:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot-inline:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: animate-in 0.3s ease-out forwards;
+}
+
+/* Markdown Styling */
+.markdown-body {
+  @apply text-sm leading-normal;
+}
+
+.markdown-body h1 {
+  @apply text-2xl font-bold mt-6 mb-4;
+}
+
+.markdown-body h2 {
+  @apply text-xl font-bold mt-5 mb-3;
+}
+
+.markdown-body h3 {
+  @apply text-lg font-bold mt-4 mb-2;
+}
+
+.markdown-body p {
+  @apply mb-4;
+}
+
+.markdown-body ul {
+  @apply list-disc pl-5 mb-4;
+}
+
+.markdown-body ol {
+  @apply list-decimal pl-5 mb-4;
+}
+
+.markdown-body li {
+  @apply mb-1;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-4;
+}
+
+.markdown-body hr {
+  @apply my-6 border-t border-gray-300 dark:border-gray-700;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse my-4;
+}
+
+.markdown-body th,
+.markdown-body td {
+  @apply border border-gray-300 dark:border-gray-700 px-3 py-2;
+}
+
+.markdown-body th {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+/* Code block styling */
+.markdown-body pre {
+  @apply rounded-md my-4;
+  max-width: 100%;
+}
+
+.code-block {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dark .markdown-body pre {
+  @apply bg-zinc-900 text-zinc-100;
+}
+
+.markdown-body pre {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.markdown-body code {
+  @apply font-mono text-sm;
+}
+
+.markdown-body :not(pre) > code {
+  @apply px-1 py-0.5 rounded text-sm;
+}
+
+.dark .markdown-body :not(pre) > code {
+  @apply bg-zinc-800 text-zinc-200;
+}
+
+.markdown-body :not(pre) > code {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Prose styles for dark mode */
+.dark .prose-invert {
+  --tw-prose-body: theme("colors.zinc.300");
+  --tw-prose-headings: theme("colors.zinc.200");
+  --tw-prose-lead: theme("colors.zinc.300");
+  --tw-prose-links: theme("colors.indigo.400");
+  --tw-prose-bold: theme("colors.zinc.200");
+  --tw-prose-counters: theme("colors.zinc.400");
+  --tw-prose-bullets: theme("colors.zinc.400");
+  --tw-prose-hr: theme("colors.zinc.700");
+  --tw-prose-quotes: theme("colors.zinc.300");
+  --tw-prose-quote-borders: theme("colors.zinc.700");
+  --tw-prose-captions: theme("colors.zinc.400");
+  --tw-prose-code: theme("colors.zinc.300");
+  --tw-prose-pre-code: theme("colors.zinc.300");
+  --tw-prose-pre-bg: theme("colors.zinc.900");
+  --tw-prose-th-borders: theme("colors.zinc.700");
+  --tw-prose-td-borders: theme("colors.zinc.700");
+}
+
+/* Fix code block rendering */
+pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.dark pre[class*="language-"] {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+pre[class*="language-"] > code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.dark pre[class*="language-"] > code {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+/* Fix code block rendering in light mode */
+:not(.dark) pre[class*="language-"] {
+  background: #f5f5f5;
+  color: #333;
+}
+
+:not(.dark) pre[class*="language-"] > code {
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Fix code block copy button */
+pre[class*="language-"] .copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+pre[class*="language-"]:hover .copy-button {
+  opacity: 1;
+}
+
+
+/* ===== override code text color ===== */
+:not(.dark) .markdown-body pre,
+:not(.dark) .markdown-body pre code,
+:not(.dark) .markdown-body :not(pre) > code {
+  /* light-mode code: dark gray text */
+  color: #1f2937 !important;    /* ← matches text-gray-800 */
+}
+
+.dark .markdown-body pre,
+.dark .markdown-body pre code,
+.dark .markdown-body :not(pre) > code {
+  /* dark-mode code: light gray text */
+  color: #d4d4d4 !important;    /* ← matches text-zinc-100 */
+}
