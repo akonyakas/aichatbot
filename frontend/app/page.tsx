@@ -539,7 +539,7 @@ export default function ChatBot() {
             </div>
             <div className="flex items-center justify-center gap-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/akonyakas"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -551,7 +551,7 @@ export default function ChatBot() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/aiganymkassymbayeva"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
